@@ -198,6 +198,17 @@ function Spiderweb({ className = "", size = 80, opacity = 0.3, color = "#BD93F9"
   );
 }
 
+// ── Event Details (single source of truth — edit here, used in both views) ────
+
+const EVENTO = {
+  fechaCorta: "Dom 1 de noviembre",
+  fechaLarga: "Domingo 1 de noviembre",
+  hora: "7:00 PM",
+  lugar: "Cr 7h bis #159-25",
+  byod: "Trae tu propia bebida",
+  cover: "$15.000 COP por persona",
+};
+
 // ── Theme Categories (matches the `categoria` column in Supabase) ─────────────
 
 const categoriaInfo: Record<string, { emoji: string; label: string }> = {
@@ -425,28 +436,28 @@ function ConfirmView({ familyName, members, code, themeName, category, onBack }:
               <IconCalendar />
               <div>
                 <p className="text-sm" style={{ color: "#6272A4" }}>Fecha</p>
-                <p className="text-base font-medium">Dom 1 de noviembre</p>
+                <p className="text-base font-medium">{EVENTO.fechaCorta}</p>
               </div>
             </div>
             <div className="flex items-center gap-2.5">
               <IconClock />
               <div>
                 <p className="text-sm" style={{ color: "#6272A4" }}>Hora</p>
-                <p className="text-base font-medium">7:00 PM</p>
+                <p className="text-base font-medium">{EVENTO.hora}</p>
               </div>
             </div>
             <div className="flex items-center gap-2.5">
               <IconPin />
               <div>
                 <p className="text-sm" style={{ color: "#6272A4" }}>Lugar</p>
-                <p className="text-base font-medium">Cr 7h bis #159-25</p>
+                <p className="text-base font-medium">{EVENTO.lugar}</p>
               </div>
             </div>
             <div className="flex items-center gap-2.5">
               <IconDrink />
               <div>
                 <p className="text-sm" style={{ color: "#6272A4" }}>BYOD</p>
-                <p className="text-base font-medium">Trae tu bebida</p>
+                <p className="text-base font-medium">{EVENTO.byod}</p>
               </div>
             </div>
           </div>
@@ -603,28 +614,28 @@ export default function App() {
               <div className="mt-0.5"><IconCalendar /></div>
               <div>
                 <p className="text-sm mb-0.5" style={{ color: "#6272A4" }}>Fecha</p>
-                <p className="font-semibold">Sábado 1 de noviembre</p>
+                <p className="font-semibold">{EVENTO.fechaLarga}</p>
               </div>
             </div>
             <div className="flex items-start gap-3">
               <div className="mt-0.5"><IconClock /></div>
               <div>
                 <p className="text-sm mb-0.5" style={{ color: "#6272A4" }}>Hora</p>
-                <p className="font-semibold">7:00 PM</p>
+                <p className="font-semibold">{EVENTO.hora}</p>
               </div>
             </div>
             <div className="flex items-start gap-3">
               <div className="mt-0.5"><IconPin /></div>
               <div>
                 <p className="text-sm mb-0.5" style={{ color: "#6272A4" }}>Lugar</p>
-                <p className="font-semibold">Cr 7h bis #159-25</p>
+                <p className="font-semibold">{EVENTO.lugar}</p>
               </div>
             </div>
             <div className="flex items-start gap-3">
               <div className="mt-0.5"><IconDrink /></div>
               <div>
                 <p className="text-sm mb-0.5" style={{ color: "#6272A4" }}>BYOD</p>
-                <p className="font-semibold">Trae tu propia bebida</p>
+                <p className="font-semibold">{EVENTO.byod}</p>
               </div>
             </div>
           </div>
@@ -635,7 +646,7 @@ export default function App() {
           >
             <IconCoin />
             <p className="font-bold" style={{ color: "#50FA7B" }}>
-              Cover: $15.000 COP por persona
+              Cover: {EVENTO.cover}
             </p>
           </div>
         </section>
