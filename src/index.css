@@ -1,0 +1,151 @@
+@import url('https://fonts.googleapis.com/css2?family=UnifrakturCook:wght@700&family=Outfit:wght@300;400;500;600;700&display=swap');
+@import 'tailwindcss';
+
+@font-face {
+  font-family: 'ScaryHalloween';
+  src: url('/fonts/ScaryHalloween.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+/* Responsive base size: text scales smoothly with viewport width,
+   from 16px on small phones up to 19px on large desktop screens.
+   Every rem-based Tailwind text utility scales proportionally. */
+html {
+  font-size: clamp(16px, 1vw + 13px, 19px);
+}
+
+@theme inline {
+  --color-bg-cave: #22232D;
+  --color-purple: #BD93F9;
+  --color-green: #50FA7B;
+  --color-orange: #E8935A;
+  --color-surface: #2A2B38;
+  --color-surface-2: #32334A;
+  --color-muted: #6272A4;
+  --color-text: #F8F8F2;
+
+  --font-gothic: 'ScaryHalloween', 'UnifrakturCook', serif;
+  --font-body: 'Outfit', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: #22232D;
+  color: #F8F8F2;
+  margin: 0;
+}
+
+/* Scrollbar hidden */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(189, 147, 249, 0.3); border-radius: 2px; }
+
+.font-gothic {
+  font-family: var(--font-gothic);
+}
+
+.bg-radial-cave {
+  background:
+    radial-gradient(ellipse 80% 60% at 50% 0%, rgba(189, 147, 249, 0.12) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 40% at 50% 100%, rgba(232, 147, 90, 0.06) 0%, transparent 50%),
+    #22232D;
+}
+
+.glow-green {
+  box-shadow: 0 0 20px rgba(80, 250, 123, 0.35), 0 0 60px rgba(80, 250, 123, 0.12);
+}
+
+.glow-green:hover {
+  box-shadow: 0 0 30px rgba(80, 250, 123, 0.55), 0 0 80px rgba(80, 250, 123, 0.2);
+}
+
+.glow-purple {
+  box-shadow: 0 0 20px rgba(189, 147, 249, 0.3);
+}
+
+.card-spooky {
+  background: rgba(42, 43, 56, 0.7);
+  border: 1px solid rgba(189, 147, 249, 0.2);
+  backdrop-filter: blur(8px);
+}
+
+.divider-rune {
+  border: none;
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(189, 147, 249, 0.4), transparent);
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+}
+
+@keyframes flicker {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.85; }
+}
+
+@keyframes bat-flutter {
+  0%, 100% { transform: scaleX(1) rotate(-3deg); }
+  50% { transform: scaleX(0.85) rotate(3deg); }
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+.animate-flicker {
+  animation: flicker 3s ease-in-out infinite;
+}
+
+.bat-1 { animation: bat-flutter 0.9s ease-in-out infinite; }
+.bat-2 { animation: bat-flutter 1.1s ease-in-out infinite 0.3s; }
+.bat-3 { animation: bat-flutter 0.8s ease-in-out infinite 0.6s; }
+
+@keyframes spider-bob {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(10px); }
+}
+
+.spider-1 { animation: spider-bob 3.4s ease-in-out infinite; transform-origin: top center; }
+.spider-2 { animation: spider-bob 4.1s ease-in-out infinite 0.6s; transform-origin: top center; }
+.spider-3 { animation: spider-bob 3.7s ease-in-out infinite 1.2s; transform-origin: top center; }
+
+input[type="text"],
+input[type="number"] {
+  background: rgba(50, 51, 74, 0.8);
+  border: 1px solid rgba(189, 147, 249, 0.3);
+  color: #F8F8F2;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus {
+  border-color: rgba(189, 147, 249, 0.7);
+  box-shadow: 0 0 0 3px rgba(189, 147, 249, 0.12);
+}
+
+input[type="text"]::placeholder,
+input[type="number"]::placeholder {
+  color: rgba(98, 114, 164, 0.8);
+}
+
+/* Remove number input arrows */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
