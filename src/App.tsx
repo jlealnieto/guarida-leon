@@ -425,7 +425,7 @@ function ConfirmView({ familyName, members, code, themeName, category, onBack }:
               <IconCalendar />
               <div>
                 <p className="text-sm" style={{ color: "#6272A4" }}>Fecha</p>
-                <p className="text-base font-medium">Sáb 1 de noviembre</p>
+                <p className="text-base font-medium">Dom 1 de noviembre</p>
               </div>
             </div>
             <div className="flex items-center gap-2.5">
