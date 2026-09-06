@@ -236,6 +236,14 @@ const IconPin = () => (
   </svg>
 );
 
+const IconCoin = () => (
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#50FA7B" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <circle cx="12" cy="12" r="9" />
+    <path d="M12 7v10" />
+    <path d="M15 9.5c0-1.1-1.3-2-3-2s-3 .9-3 2 1.3 2 3 2 3 .9 3 2-1.3 2-3 2-3-.9-3-2" />
+  </svg>
+);
+
 const IconDrink = () => (
   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#BD93F9" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
     <path d="M8 2L4 8h16L16 2H8z" />
@@ -619,6 +627,16 @@ export default function App() {
                 <p className="font-semibold">Trae tu propia bebida</p>
               </div>
             </div>
+          </div>
+
+          <div
+            className="flex items-center justify-center gap-2.5 rounded-xl px-5 py-3 text-center"
+            style={{ background: "rgba(80,250,123,0.1)", border: "1px solid rgba(80,250,123,0.3)" }}
+          >
+            <IconCoin />
+            <p className="font-bold" style={{ color: "#50FA7B" }}>
+              Cover: $15.000 COP por persona
+            </p>
           </div>
         </section>
 
