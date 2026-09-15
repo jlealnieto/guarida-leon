@@ -54,7 +54,7 @@ const ITINERARIO = [
     hora: "12:30 AM",
     icon: "casino",
     titulo: "Casino & Alta Apuesta",
-    descripcion: "Ruleta europea, Blackjack desatado y mesas de Póker subterráneo hasta que el alba disuelva la niebla.",
+    descripcion: "Ruleta europea y mesas de Póker subterráneo hasta que el alba disuelva la niebla.",
     rank: "★",
     suit: "JOKER",
     accent: "tertiary" as const,
@@ -185,17 +185,17 @@ function RsvpForm() {
           })}
         </div>
 
-        <div className="flex items-center justify-between gap-4 p-2.5 rounded-lg bg-surface-container-lowest shadow-inner mt-1">
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 p-2.5 rounded-lg bg-surface-container-lowest shadow-inner mt-1">
           <div className="flex flex-col">
             <span className="font-label text-[11px] font-semibold text-primary uppercase">Total exacto de acompañantes</span>
           </div>
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2 shrink-0">
             <button
               type="button"
               aria-label="Reducir acompañante"
               onClick={() => stepCompanions(-1)}
               disabled={submitting}
-              className="w-10 h-10 rounded-lg bg-surface-container hover:bg-surface-container-high text-primary flex items-center justify-center font-bold text-xl transition-colors"
+              className="w-10 h-10 rounded-lg bg-surface-container hover:bg-surface-container-high text-primary flex items-center justify-center font-bold text-xl transition-colors shrink-0"
             >
               −
             </button>
@@ -205,14 +205,14 @@ function RsvpForm() {
               value={companions}
               onChange={(e) => setCompanions(Math.max(0, parseInt(e.target.value, 10) || 0))}
               disabled={submitting}
-              className="w-16 h-10 text-center font-headline text-lg font-bold rounded-lg text-primary"
+              className="w-16 h-10 text-center font-headline text-lg font-bold rounded-lg text-primary shrink-0"
             />
             <button
               type="button"
               aria-label="Aumentar acompañante"
               onClick={() => stepCompanions(1)}
               disabled={submitting}
-              className="w-10 h-10 rounded-lg bg-surface-container hover:bg-surface-container-high text-primary flex items-center justify-center font-bold text-xl transition-colors"
+              className="w-10 h-10 rounded-lg bg-surface-container hover:bg-surface-container-high text-primary flex items-center justify-center font-bold text-xl transition-colors shrink-0"
             >
               +
             </button>
@@ -265,7 +265,7 @@ export default function App() {
       {/* Header */}
       <header className="fixed top-0 w-full z-50 bg-surface/85 backdrop-blur-xl shadow-[0_4px_24px_rgba(0,0,0,0.6)]">
         <div className="h-20 max-w-7xl mx-auto px-6 flex items-center justify-between gap-6">
-          <img src={logo} alt="Casino Clandestino" className="h-9 sm:h-10 w-auto object-contain" />
+          <img src={logo} alt="Casino Clandestino" className="h-14 sm:h-16 w-auto object-contain" />
           <div className="hidden xl:flex items-center gap-2 px-3 py-1.5 rounded-full bg-surface-container-lowest shadow-[0_0_12px_rgba(242,202,80,0.15)]">
             <span className="relative flex w-2 h-2">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
@@ -448,7 +448,7 @@ export default function App() {
                 <span className="font-label text-[11px] font-bold text-primary uppercase tracking-widest mb-2">Reglas de la Casa</span>
                 <h4 className="font-headline text-2xl text-on-surface">Código de Máscara & Discreción</h4>
                 <p className="font-label text-sm text-on-surface-variant mt-2">
-                  Disfraz obligatorio de rigor. Lista de invitados cerrada — cada asistente representa a la casa con etiqueta speakeasy de 1920.
+                  Disfraz obligatorio de rigor. Lista de invitados cerrada — cada asistente representa a la casa con elegancia y misterio.
                 </p>
               </div>
             </div>
@@ -486,7 +486,7 @@ export default function App() {
           <p className="font-label text-[11px] font-bold text-outline uppercase tracking-widest mb-6">Sociedad Secreta • Club Privado</p>
           <div className="max-w-2xl px-4 py-3 rounded-lg bg-surface-container-low mb-8">
             <p className="font-label text-sm text-on-surface-variant italic">
-              Se exige estricta discreción y etiqueta speakeasy de 1920. Disfraz obligatorio para cruzar la trampilla.
+              Se exige estricta discreción. Disfraz obligatorio para cruzar la trampilla.
             </p>
           </div>
           <div className="flex flex-wrap justify-center gap-6">
