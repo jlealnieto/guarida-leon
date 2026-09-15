@@ -522,7 +522,7 @@ export default function App() {
                 {[
                   { icon: "wine_bar", label: "Traje Bebidas" },
                   { icon: "sentiment_very_satisfied", label: "Traje Sonrisas" },
-                  { icon: "theater_comedy", label: "Y Tu Mejor Disfraz" },
+                  { icon: "theater_comedy", label: "Y Trae Tu Mejor Disfraz" },
                 ].map((item) => (
                   <span
                     key={item.label}
