@@ -18,3 +18,9 @@ logs/
 # beside it.
 /.plugins/
 /.opencode-skills/
+
+# Project instructions for AI assistants and working notes between sessions —
+# not part of the deployed site.
+/AGENTS.md
+/CLAUDE.md
+/.internal/
