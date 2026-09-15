@@ -38,7 +38,7 @@ const ITINERARIO = [
     descripcion: "Swing jazz orquestado en vivo con mentalismo oscuro y magia de salón que desafía la fortuna.",
     rank: "Q",
     suit: "♦",
-    accent: "primary" as const,
+    accent: "secondary" as const,
     spotlight: true,
   },
   {
@@ -54,7 +54,7 @@ const ITINERARIO = [
     hora: "12:30 AM",
     icon: "casino",
     titulo: "Casino & Alta Apuesta",
-    descripcion: "Ruleta europea y mesas de Póker subterráneo hasta que el alba disuelva la niebla.",
+    descripcion: "Ruleta y dados hasta que el alba disuelva la niebla.",
     rank: "★",
     suit: "JOKER",
     accent: "tertiary" as const,
@@ -63,9 +63,22 @@ const ITINERARIO = [
 
 const ACCENT_CLASSES = {
   primary: { text: "text-primary", bg: "bg-primary/20" },
-  secondary: { text: "text-secondary", bg: "bg-secondary/20" },
+  secondary: { text: "text-crimson", bg: "bg-crimson/20" },
   tertiary: { text: "text-tertiary", bg: "bg-tertiary/20" },
 } as const;
+
+const COSTUME_IDEAS = [
+  { icon: "checkroom", titulo: "Gánsteres y mafia", descripcion: "Trajes, tirantes, sombreros.", accent: "primary" as const },
+  { icon: "theater_comedy", titulo: "Criminales / ladrones", descripcion: "Más noir.", accent: "secondary" as const },
+  { icon: "back_hand", titulo: "Femme fatales", descripcion: "Vestidos elegantes, guantes, maquillaje dramático.", accent: "primary" as const },
+  { icon: "search", titulo: "Detectives", descripcion: "Años 30-40, gabardinas, sombreros.", accent: "primary" as const },
+  { icon: "diamond", titulo: "Millonarios / aristócratas", descripcion: "Old money, joyas, vestidos de gala.", accent: "primary" as const },
+  { icon: "nights_stay", titulo: "Vampiros / criaturas de Halloween", descripcion: "Reinterpretados como gente de la alta sociedad.", accent: "secondary" as const },
+  { icon: "casino", titulo: "Jugadores profesionales", descripcion: "Looks sofisticados, un poco excéntricos.", accent: "primary" as const },
+  { icon: "auto_awesome", titulo: "Celebridades / divas", descripcion: "Glamour exagerado.", accent: "primary" as const },
+  { icon: "nightlife", titulo: "Cabaret", descripcion: "Charleston, plumas, flecos, lentejuelas.", accent: "secondary" as const },
+  { icon: "badge", titulo: "Personal del casino", descripcion: "Dealers, cantantes, anfitriones.", accent: "secondary" as const },
+];
 
 const COMPANION_CHIPS = [
   { label: "0 Solo", value: 0 },
@@ -266,6 +279,13 @@ export default function App() {
       <header className="fixed top-0 w-full z-50 bg-surface/85 backdrop-blur-xl shadow-[0_4px_24px_rgba(0,0,0,0.6)]">
         <div className="h-20 max-w-7xl mx-auto px-6 flex items-center justify-between gap-6">
           <img src={logo} alt="Casino Clandestino" className="h-14 sm:h-16 w-auto object-contain" />
+          <a
+            href="#rsvp-form"
+            className="lg:hidden flex items-center gap-1.5 px-4 py-2 rounded-lg bg-gradient-to-r from-primary-container via-primary to-primary-fixed text-on-primary font-label text-[11px] font-bold uppercase tracking-wider shadow-[0_2px_16px_rgba(242,202,80,0.35)] shrink-0"
+          >
+            <span className="material-symbols-outlined text-[16px]">poker_chip</span>
+            RSVP
+          </a>
           <div className="hidden xl:flex items-center gap-2 px-3 py-1.5 rounded-full bg-surface-container-lowest shadow-[0_0_12px_rgba(242,202,80,0.15)]">
             <span className="relative flex w-2 h-2">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
@@ -301,11 +321,12 @@ export default function App() {
             />
           </div>
           <div className="pointer-events-none absolute -top-40 left-1/2 -translate-x-1/2 w-[850px] h-[550px] bg-primary-container/10 rounded-full blur-[140px]" />
-          <div className="pointer-events-none absolute top-[420px] -right-40 w-[500px] h-[500px] bg-secondary-container/15 rounded-full blur-[160px]" />
+          <div className="pointer-events-none absolute top-[420px] -right-40 w-[500px] h-[500px] bg-crimson/15 rounded-full blur-[160px]" />
 
           <div className="relative z-10 inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-surface-container-low/90 shadow-[0_0_20px_rgba(242,202,80,0.15)] mb-4">
             <span className="material-symbols-outlined text-primary text-[18px]">lock</span>
-            <span className="font-label text-[11px] font-bold uppercase tracking-[0.25em] text-primary">Gran Gala Subterránea • Halloween</span>
+            <span className="font-label text-[11px] font-bold uppercase tracking-[0.25em] text-primary">Gran Gala Subterránea • Halloween MMXXVI</span>
+            <span className="w-1.5 h-1.5 rounded-full bg-crimson" />
           </div>
 
           <div className="relative z-10 max-w-4xl mx-auto flex flex-col items-center">
@@ -323,7 +344,7 @@ export default function App() {
             <p className="font-headline text-2xl text-primary-fixed/90 tracking-widest mt-2 uppercase">Halloween Party</p>
             <div className="w-24 h-[2px] bg-primary/40 my-4" />
             <p className="font-label text-base max-w-2xl text-on-surface-variant italic font-light">
-              "Una noche de disfraces, misterio y grandes apuestas tras las cortinas de la Ley Seca."
+              "Una noche de disfraces, misterio y grandes apuestas. La casa pone las cartas, tú pones el trago."
             </p>
 
             {/* Event coordinates */}
@@ -381,9 +402,9 @@ export default function App() {
         <section id="itinerario" className="relative w-full max-w-7xl mx-auto px-6 py-12">
           <div className="flex flex-col items-center text-center mb-12">
             <div className="flex items-center gap-2 mb-2">
-              <span className="text-secondary text-lg">♠</span>
+              <span className="text-crimson text-lg">♠</span>
               <span className="text-primary text-lg">♦</span>
-              <span className="text-secondary text-lg">♥</span>
+              <span className="text-crimson text-lg">♥</span>
               <span className="text-primary text-lg">♣</span>
             </div>
             <h2 className="font-headline text-3xl lg:text-4xl text-transparent bg-clip-text bg-gradient-to-r from-primary-fixed via-primary to-primary-container uppercase tracking-wider">
@@ -401,7 +422,7 @@ export default function App() {
               return (
                 <div
                   key={item.titulo}
-                  className={`group relative flex flex-col justify-between h-[400px] p-4 rounded-xl shadow-xl hover:-translate-y-2 hover:shadow-[0_12px_36px_rgba(242,202,80,0.25)] transition-all duration-300 ${
+                  className={`group relative flex flex-col justify-between min-h-[440px] p-4 rounded-xl shadow-xl hover:-translate-y-2 hover:shadow-[0_12px_36px_rgba(242,202,80,0.25)] transition-all duration-300 ${
                     item.spotlight ? "bg-surface-container-high/90 lg:-translate-y-2 shadow-2xl" : "bg-surface-container/70"
                   } backdrop-blur-lg`}
                 >
@@ -418,12 +439,12 @@ export default function App() {
                     <div className={`w-12 h-12 rounded-full ${accent.bg} flex items-center justify-center ${accent.text} shadow-inner mb-3`}>
                       <span className="material-symbols-outlined text-[24px]">{item.icon}</span>
                     </div>
-                    <span className={`font-label text-[11px] font-bold ${accent.text} uppercase tracking-widest`}>{item.hora}</span>
+                    <span className={`font-label text-base font-bold ${accent.text} uppercase tracking-widest`}>{item.hora}</span>
                     <h3 className="font-headline text-xl text-on-surface mt-1 leading-snug">{item.titulo}</h3>
                     <div className="w-8 h-[1px] bg-outline-variant/60 my-2" />
                     <p className="font-label text-[13px] text-on-surface-variant/80 leading-relaxed">{item.descripcion}</p>
                   </div>
-                  <div className={`flex flex-col items-end leading-none ${accent.text} rotate-180`}>
+                  <div className={`flex flex-col items-start leading-none ${accent.text} rotate-180`}>
                     <span className="font-headline text-2xl font-bold">{item.rank}</span>
                     <span className="text-xl -mt-1">{item.suit}</span>
                   </div>
@@ -455,11 +476,72 @@ export default function App() {
           </div>
         </section>
 
+        {/* IDEAS DE DISFRACES */}
+        <section className="relative w-full max-w-6xl mx-auto px-6 py-10">
+          <div className="relative rounded-2xl border-8 border-primary bg-surface-container/40 p-6 sm:p-12 shadow-[0_0_32px_rgba(242,202,80,0.15)]">
+
+            <div className="flex flex-col items-center text-center mb-10">
+              <span className="font-label text-[11px] font-bold text-primary uppercase tracking-[0.25em] mb-3">
+                ♦ Reglas de la Fiesta & Etiqueta Clandestina ♦
+              </span>
+              <h2 className="font-headline text-3xl lg:text-4xl text-primary uppercase tracking-wider">Ideas de Disfraces</h2>
+              <p className="font-label text-sm text-on-surface-variant mt-3 max-w-xl">
+                El velo de la discreción exige un alter ego a la altura de la casa. Inspira tu atuendo en las siguientes estampas de época:
+              </p>
+              <div className="w-16 h-[2px] bg-primary/40 mt-4" />
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {COSTUME_IDEAS.map((idea) => {
+                const accent = ACCENT_CLASSES[idea.accent];
+                return (
+                  <div
+                    key={idea.titulo}
+                    className="flex items-center gap-4 p-4 rounded-lg border border-outline-variant/30 bg-surface-container-lowest/60"
+                  >
+                    <div className={`w-11 h-11 shrink-0 rounded-full ${accent.bg} flex items-center justify-center ${accent.text}`}>
+                      <span className="material-symbols-outlined text-[22px]">{idea.icon}</span>
+                    </div>
+                    <div>
+                      <h3 className="font-headline text-lg text-on-surface leading-snug">{idea.titulo}</h3>
+                      <p className="font-label text-sm text-on-surface-variant/80">{idea.descripcion}</p>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+
+            <div className="mt-8 rounded-xl border-2 border-crimson/70 bg-crimson/10 p-6 text-center">
+              <span className="font-label text-[11px] font-bold uppercase tracking-[0.2em] text-crimson">
+                Tradición Clandestina
+              </span>
+              <h3 className="font-headline text-2xl sm:text-3xl uppercase tracking-wide mt-1 text-crimson">
+                Recuerda... ¡Es Fiesta de Traje!
+              </h3>
+              <div className="flex flex-wrap justify-center gap-3 mt-5">
+                {[
+                  { icon: "wine_bar", label: "Traje Bebidas" },
+                  { icon: "sentiment_very_satisfied", label: "Traje Sonrisas" },
+                  { icon: "theater_comedy", label: "Y Tu Mejor Disfraz" },
+                ].map((item) => (
+                  <span
+                    key={item.label}
+                    className="flex items-center gap-2 px-4 py-2 rounded-full bg-surface-container-lowest border border-outline-variant/30 font-label text-[11px] font-bold uppercase tracking-wider text-on-surface"
+                  >
+                    <span className="material-symbols-outlined text-[16px] text-primary">{item.icon}</span>
+                    {item.label}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* RSVP FORM */}
         <section id="rsvp-form" className="relative w-full max-w-4xl mx-auto px-6 py-12">
           <div className="relative rounded-2xl p-6 sm:p-10 bg-surface-container-low shadow-[0_24px_64px_rgba(0,0,0,0.9),0_0_40px_rgba(242,202,80,0.08)]">
             <div className="flex flex-col items-center text-center mb-8">
-              <div className="w-16 h-16 rounded-full bg-gradient-to-br from-primary via-primary-container to-surface-container-highest p-0.5 shadow-[0_0_24px_rgba(242,202,80,0.3)] mb-3 flex items-center justify-center">
+              <div className="w-16 h-16 rounded-full bg-gradient-to-br from-primary via-crimson to-surface-container-highest p-0.5 shadow-[0_0_24px_rgba(242,202,80,0.3)] mb-3 flex items-center justify-center">
                 <div className="w-full h-full rounded-full bg-surface-container-lowest flex items-center justify-center">
                   <span className="material-symbols-outlined text-primary text-[28px]">poker_chip</span>
                 </div>
@@ -479,10 +561,8 @@ export default function App() {
       {/* FOOTER */}
       <footer className="w-full bg-surface-container-lowest mt-8">
         <div className="max-w-7xl mx-auto px-6 py-12 flex flex-col items-center text-center">
-          <div className="w-12 h-12 rounded-full bg-surface-container flex items-center justify-center mb-4 shadow-[0_0_16px_rgba(242,202,80,0.2)]">
-            <span className="font-headline text-2xl text-primary font-bold">C</span>
-          </div>
-          <h3 className="font-headline text-xl uppercase tracking-widest text-primary mb-2">Casino Clandestino • Halloween</h3>
+          <img src={logo} alt="Casino Clandestino" className="h-16 w-auto object-contain mb-4" />
+          <h3 className="font-headline text-xl uppercase tracking-widest text-primary mb-2">Casino Clandestino • Halloween MMXXVI</h3>
           <p className="font-label text-[11px] font-bold text-outline uppercase tracking-widest mb-6">Sociedad Secreta • Club Privado</p>
           <div className="max-w-2xl px-4 py-3 rounded-lg bg-surface-container-low mb-8">
             <p className="font-label text-sm text-on-surface-variant italic">
