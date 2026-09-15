@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { supabase } from "./supabaseClient";
+import logo from "./assets/logo-casino-clandestino.png";
+import heroBg from "./assets/hero-casino-bg.jpg";
 
 // ── Event Details (single source of truth — edit here) ────────────────────────
 
@@ -263,15 +265,7 @@ export default function App() {
       {/* Header */}
       <header className="fixed top-0 w-full z-50 bg-surface/85 backdrop-blur-xl shadow-[0_4px_24px_rgba(0,0,0,0.6)]">
         <div className="h-20 max-w-7xl mx-auto px-6 flex items-center justify-between gap-6">
-          <div className="flex items-center gap-3">
-            <div className="w-9 h-9 rounded-full bg-gradient-to-br from-primary-fixed via-primary to-primary-container flex items-center justify-center shadow-[0_0_16px_rgba(242,202,80,0.3)]">
-              <span className="font-headline text-lg font-bold text-on-primary">C</span>
-            </div>
-            <div className="flex flex-col">
-              <span className="font-headline text-lg tracking-widest text-primary uppercase">Casino Clandestino</span>
-              <span className="font-label text-[10px] font-bold uppercase tracking-widest text-outline">Halloween Party</span>
-            </div>
-          </div>
+          <img src={logo} alt="Casino Clandestino" className="h-9 sm:h-10 w-auto object-contain" />
           <div className="hidden xl:flex items-center gap-2 px-3 py-1.5 rounded-full bg-surface-container-lowest shadow-[0_0_12px_rgba(242,202,80,0.15)]">
             <span className="relative flex w-2 h-2">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
@@ -293,6 +287,19 @@ export default function App() {
       <main className="w-full pt-20">
         {/* HERO */}
         <section className="relative w-full min-h-[88vh] flex flex-col justify-between items-center text-center px-6 pt-12 pb-12 overflow-hidden">
+          <div className="absolute inset-0 z-0 overflow-hidden">
+            <img
+              src={heroBg}
+              alt=""
+              aria-hidden="true"
+              className="w-full h-full object-cover opacity-25 scale-105 filter brightness-75 contrast-125"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-surface-container-lowest via-surface-container-lowest/80 to-transparent" />
+            <div
+              className="absolute inset-0"
+              style={{ background: "radial-gradient(circle, transparent 0%, rgba(14,14,14,0.55) 60%, #0e0e0e 100%)" }}
+            />
+          </div>
           <div className="pointer-events-none absolute -top-40 left-1/2 -translate-x-1/2 w-[850px] h-[550px] bg-primary-container/10 rounded-full blur-[140px]" />
           <div className="pointer-events-none absolute top-[420px] -right-40 w-[500px] h-[500px] bg-secondary-container/15 rounded-full blur-[160px]" />
 
@@ -428,17 +435,15 @@ export default function App() {
 
         {/* CASA / REGLAS */}
         <section className="relative w-full py-6 px-6">
-          <div className="max-w-6xl mx-auto rounded-2xl overflow-hidden shadow-2xl relative bg-gradient-to-br from-surface-container-high via-surface-container to-surface-container-lowest">
+          <div className="max-w-6xl mx-auto rounded-2xl overflow-hidden shadow-2xl relative">
             <div className="min-h-64 sm:min-h-80 w-full relative flex items-center py-10">
-              <div className="absolute inset-0 opacity-30" aria-hidden="true">
-                <svg className="w-full h-full" preserveAspectRatio="xMidYMid slice" viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
-                  <g stroke="#f2ca50" strokeWidth="0.5" fill="none">
-                    {Array.from({ length: 10 }).map((_, i) => (
-                      <path key={i} d={`M${i * 40} 0 L${i * 40 + 20} 200`} />
-                    ))}
-                  </g>
-                </svg>
-              </div>
+              <img
+                src={heroBg}
+                alt=""
+                aria-hidden="true"
+                className="absolute inset-0 w-full h-full object-cover object-center filter brightness-90"
+              />
+              <div className="absolute inset-0 bg-gradient-to-r from-surface-container-lowest via-surface-container-lowest/70 to-surface-container-lowest/20" />
               <div className="relative z-10 flex flex-col justify-center px-8 max-w-xl">
                 <span className="font-label text-[11px] font-bold text-primary uppercase tracking-widest mb-2">Reglas de la Casa</span>
                 <h4 className="font-headline text-2xl text-on-surface">Código de Máscara & Discreción</h4>
